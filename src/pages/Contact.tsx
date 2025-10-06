@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,13 +21,78 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setIsAuthenticated(!!session);
+    setUserId(session?.user?.id || null);
+    
+    // Pre-fill form with user data if authenticated
+    if (session) {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("email, full_name")
+        .eq("id", session.user.id)
+        .single();
+      
+      if (profile) {
+        setFormData(prev => ({
+          ...prev,
+          name: profile.full_name || "",
+          email: profile.email || "",
+        }));
+      }
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      if (isAuthenticated && userId) {
+        // Save to database if authenticated
+        const { error } = await supabase
+          .from("contact_submissions")
+          .insert({
+            user_id: userId,
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+          });
+
+        if (error) throw error;
+
+        toast({
+          title: "Message Sent & Saved!",
+          description: "Your inquiry has been submitted and saved to your history.",
+        });
+        
+        // Redirect to history page
+        setTimeout(() => navigate("/history"), 1500);
+      } else {
+        // Just show confirmation if not authenticated
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you as soon as possible. Login to track your inquiries.",
+        });
+      }
+      
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -59,6 +130,14 @@ const Contact = () => {
             Have a project in mind? We'd love to hear from you. Send us a message and
             we'll respond as soon as possible.
           </p>
+          {!isAuthenticated && (
+            <p className="text-sm text-muted-foreground mt-4">
+              <Button variant="link" onClick={() => navigate("/auth")} className="p-0 h-auto">
+                Login or sign up
+              </Button>{" "}
+              to track your inquiries
+            </p>
+          )}
         </div>
       </section>
 
@@ -149,10 +228,22 @@ const Contact = () => {
                       placeholder="Tell us about your project..."
                     />
                   </div>
-                  <Button type="submit" className="w-full gradient-hero text-white hover:opacity-90 transition-opacity">
+                  <Button 
+                    type="submit" 
+                    className="w-full gradient-hero text-white hover:opacity-90 transition-opacity"
+                    disabled={isSubmitting}
+                  >
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  {isAuthenticated && (
+                    <p className="text-sm text-center text-muted-foreground">
+                      Your inquiry will be saved to your{" "}
+                      <Button variant="link" onClick={() => navigate("/history")} className="p-0 h-auto text-primary">
+                        history
+                      </Button>
+                    </p>
+                  )}
                 </form>
               </CardContent>
             </Card>
