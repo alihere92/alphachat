@@ -50,38 +50,41 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Require authentication for all contact submissions
+    if (!isAuthenticated || !userId) {
+      toast({
+        title: "Authentication Required",
+        description: "Please login or sign up to submit your inquiry.",
+        variant: "destructive",
+      });
+      setTimeout(() => navigate("/auth"), 1500);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      if (isAuthenticated && userId) {
-        // Save to database if authenticated
-        const { error } = await supabase
-          .from("contact_submissions")
-          .insert({
-            user_id: userId,
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-          });
-
-        if (error) throw error;
-
-        toast({
-          title: "Message Sent & Saved!",
-          description: "Your inquiry has been submitted and saved to your history.",
+      // Save to database
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert({
+          user_id: userId,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         });
-        
-        // Redirect to history page
-        setTimeout(() => navigate("/history"), 1500);
-      } else {
-        // Just show confirmation if not authenticated
-        toast({
-          title: "Message Sent!",
-          description: "We'll get back to you as soon as possible. Login to track your inquiries.",
-        });
-      }
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent & Saved!",
+        description: "Your inquiry has been submitted and saved to your history.",
+      });
       
+      // Redirect to history page
+      setTimeout(() => navigate("/history"), 1500);
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -135,7 +138,7 @@ const Contact = () => {
               <Button variant="link" onClick={() => navigate("/auth")} className="p-0 h-auto">
                 Login or sign up
               </Button>{" "}
-              to track your inquiries
+              to submit your inquiry and track your submissions
             </p>
           )}
         </div>
