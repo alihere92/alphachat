@@ -208,9 +208,12 @@ All colors MUST be HSL.
 /* Chatbot trigger button styling */
 .n8n-chat-button,
 #n8n-chat button[aria-label="Open chat"],
-#n8n-chat .chat-launcher {
-  background: hsl(var(--primary)) !important;
-  box-shadow: 0 4px 20px hsl(var(--primary) / 0.4), 0 2px 10px hsl(var(--primary) / 0.3) !important;
+#n8n-chat .chat-launcher,
+#n8n-chat > button,
+#n8n-chat button {
+  background: hsl(217 91% 60%) !important;
+  background-color: hsl(217 91% 60%) !important;
+  box-shadow: 0 4px 20px hsl(217 91% 60% / 0.4), 0 2px 10px hsl(217 91% 60% / 0.3) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: none !important;
   width: 64px !important;
@@ -219,10 +222,21 @@ All colors MUST be HSL.
 
 .n8n-chat-button:hover,
 #n8n-chat button[aria-label="Open chat"]:hover,
-#n8n-chat .chat-launcher:hover {
+#n8n-chat .chat-launcher:hover,
+#n8n-chat > button:hover,
+#n8n-chat button:hover {
   transform: scale(1.05) !important;
-  box-shadow: 0 6px 25px hsl(var(--primary) / 0.5), 0 3px 12px hsl(var(--primary) / 0.4) !important;
+  background: hsl(217 91% 60%) !important;
+  background-color: hsl(217 91% 60%) !important;
+  box-shadow: 0 6px 25px hsl(217 91% 60% / 0.5), 0 3px 12px hsl(217 91% 60% / 0.4) !important;
   opacity: 0.9 !important;
+}
+
+/* Force chatbot icon color */
+#n8n-chat button svg,
+#n8n-chat .chat-launcher svg {
+  color: white !important;
+  fill: white !important;
 }
 
 /* Chat window styling */
