@@ -20,15 +20,6 @@ const Chatbot = () => {
       createChat({
         webhookUrl: 'https://itsalibhai92.app.n8n.cloud/webhook/7f57f4a9-c51e-4bc7-84fe-8fe9b4df0d8e/chat',
         introMessage: "👋 Hi there! I'm **Alpha**, your virtual assistant from the Alpha Agency. How can I help you today?",
-        i18n: {
-          en: {
-            title: 'Chat with Alpha',
-            subtitle: 'We\\'re here to help!',
-            footer: '',
-            getStarted: 'Start conversation',
-            inputPlaceholder: 'Type your message...'
-          }
-        }
       });
 
       // Custom styling function with DOM safety checks
@@ -56,7 +47,7 @@ const Chatbot = () => {
             --chat-input-background: #ffffff;
             --chat-input-text-color: #111827;
             --chat-button-color: #007BFF;
-            --chat-font-family: 'Inter', sans-serif;
+            --chat-font-family: 'Poppins', sans-serif;
             border-radius: 18px;
             box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
           }
