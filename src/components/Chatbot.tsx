@@ -18,8 +18,7 @@ const Chatbot = () => {
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
       
       createChat({
-        webhookUrl: 'https://itsalibhai92.app.n8n.cloud/webhook/7f57f4a9-c51e-4bc7-84fe-8fe9b4df0d8e/chat',
-        introMessage: "👋 Hi there! I'm **Alpha**, your virtual assistant from the Alpha Agency. How can I help you today?",
+        webhookUrl: 'https://johnhassan.app.n8n.cloud/webhook/7f57f4a9-c51e-4bc7-84fe-8fe9b4df0d8e/chat'
       });
 
       // Custom styling function with DOM safety checks
