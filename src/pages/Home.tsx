@@ -73,16 +73,17 @@ const Home = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="mb-6">
-              Transform Your Digital
+              Grow 10x Faster with
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Presence with Alpha
+                AI-Powered Marketing & Web Development
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We're a full-service marketing and development agency delivering exceptional
-              digital solutions that drive results.
+              Alpha helps ambitious brands rank #1 on Google, convert more visitors, and scale revenue with
+              AI-driven SEO, high-performance websites, and data-backed marketing strategies.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg" className="gradient-hero text-white hover:opacity-90 transition-opacity">
