@@ -73,15 +73,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="mb-6">
-              Grow 10x Faster with
+              Rank #1 on Google &
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                AI-Powered Marketing & Web Development
+                10x Your Revenue with AI
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Alpha helps ambitious brands rank #1 on Google, convert more visitors, and scale revenue with
-              AI-driven SEO, high-performance websites, and data-backed marketing strategies.
+              Alpha builds high-converting websites, automates your marketing with AI, and dominates search rankings — so you get more leads, more sales, and unstoppable growth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
