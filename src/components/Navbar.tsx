@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import nexvoLogo from "@/assets/nexvo-logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
