@@ -99,7 +99,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 gradient-accent rounded-lg" />
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Alpha
+              Nexvo
             </span>
           </Link>
 

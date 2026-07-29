@@ -112,8 +112,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      info: "hello@alpha.agency",
-      link: "mailto:hello@alpha.agency",
+      info: "hello@nexvo.agency",
+      link: "mailto:hello@nexvo.agency",
     },
     {
       icon: MapPin,
@@ -261,7 +261,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Alpha Agency Location"
+                title="Nexvo Agency Location"
               />
             </div>
           </div>

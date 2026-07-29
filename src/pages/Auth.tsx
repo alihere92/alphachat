@@ -132,7 +132,7 @@ const Auth = () => {
     <div className="min-h-screen pt-24 pb-12 px-4 flex items-center justify-center">
       <Card className="w-full max-w-md shadow-large">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl">Welcome to Alpha</CardTitle>
+          <CardTitle className="text-3xl">Welcome to Nexvo</CardTitle>
           <CardDescription>Login or create an account to track your inquiries</CardDescription>
         </CardHeader>
         <CardContent>

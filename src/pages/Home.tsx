@@ -48,7 +48,7 @@ const Home = () => {
     {
       name: "Sarah Johnson",
       role: "CEO, TechStart Inc",
-      content: "Alpha transformed our digital presence completely. Their team is professional, creative, and delivers on time.",
+      content: "Nexvo transformed our digital presence completely. Their team is professional, creative, and delivers on time.",
       rating: 5,
     },
     {
@@ -60,7 +60,7 @@ const Home = () => {
     {
       name: "Emily Rodriguez",
       role: "Marketing Director, BrandCo",
-      content: "Working with Alpha was a game-changer. They understood our vision and brought it to life beautifully.",
+      content: "Working with Nexvo was a game-changer. They understood our vision and brought it to life beautifully.",
       rating: 5,
     },
   ];
@@ -80,7 +80,7 @@ const Home = () => {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Alpha builds high-converting websites, automates your marketing with AI, and dominates search rankings — so you get more leads, more sales, and unstoppable growth.
+              Nexvo builds high-converting websites, automates your marketing with AI, and dominates search rankings — so you get more leads, more sales, and unstoppable growth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
