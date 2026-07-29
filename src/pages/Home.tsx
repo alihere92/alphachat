@@ -73,10 +73,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center animate-fade-in">
             <h1 className="mb-6">
-              Rank #1 on Google &
+              Nexvo — AI Marketing Agency &
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                10x Your Revenue with AI
+                Web Development That Scales Brands
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
