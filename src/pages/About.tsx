@@ -31,7 +31,7 @@ const About = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="mb-6">About Alpha</h1>
+            <h1 className="mb-6">About Nexvo</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We're a passionate team of designers, developers, and marketers committed to
               helping businesses thrive in the digital world.
@@ -48,7 +48,7 @@ const About = () => {
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
                 Founded with a vision to bridge the gap between businesses and digital excellence,
-                Alpha has grown into a trusted partner for companies seeking transformative digital solutions.
+                Nexvo has grown into a trusted partner for companies seeking transformative digital solutions.
               </p>
               <p>
                 Our journey began with a simple belief: every business deserves access to world-class

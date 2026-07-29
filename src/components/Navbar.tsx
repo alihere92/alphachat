@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import nexvoLogo from "@/assets/nexvo-logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -97,9 +98,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-accent rounded-lg" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Alpha
+            <img src={nexvoLogo} alt="Nexvo logo" width={32} height={32} className="w-8 h-8" />
+            <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Nexvo
             </span>
           </Link>
 

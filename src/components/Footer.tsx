@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import nexvoLogo from "@/assets/nexvo-logo.png";
 
 const Footer = () => {
   return (
@@ -9,9 +10,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 gradient-accent rounded-lg" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Alpha
+              <img src={nexvoLogo} alt="Nexvo logo" width={32} height={32} loading="lazy" className="w-8 h-8" />
+              <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Nexvo
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -101,14 +102,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Mail className="h-5 w-5 text-primary" />
-                <span>hello@alpha.agency</span>
+                <span>hello@nexvo.agency</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Alpha Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Nexvo Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>
