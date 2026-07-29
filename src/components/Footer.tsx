@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 gradient-accent rounded-lg" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <img src={nexvoLogo} alt="Nexvo logo" width={32} height={32} loading="lazy" className="w-8 h-8" />
+              <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Nexvo
               </span>
             </div>
